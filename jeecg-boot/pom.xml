@@ -46,14 +46,19 @@
 		<dom4j.version>1.6.1</dom4j.version>
 		<qiniu-java-sdk.version>7.2.23</qiniu-java-sdk.version>
 		<pinyin4j.version>2.5.1</pinyin4j.version>
+        <activiti.version>6.0.0</activiti.version>
+        <pagehelper.boot.version>1.2.5</pagehelper.boot.version>
 	</properties>
 
 	<modules>
 		<module>jeecg-boot-base</module>
-		<module>jeecg-boot-module-demo</module>
+
 		<module>jeecg-boot-module-system</module>
 		<module>jeecg-boot-starter</module>
 		<module>jeecg-cloud-module</module>
+
+		<module>jee-activiti</module>
+		<module>jee-workFlow</module>
 	</modules>
 
 
@@ -201,6 +206,18 @@
 				<groupId>commons-beanutils</groupId>
 				<artifactId>commons-beanutils</artifactId>
 				<version>${commons-beanutils.version}</version>
+			</dependency>
+			<!-- activiti模块-->
+			<dependency>
+				<groupId>org.jeecgframework.boot</groupId>
+				<artifactId>jee-activiti</artifactId>
+				<version>${jeecgboot.version}</version>
+			</dependency>
+			<!-- 通用工具 -->
+			<dependency>
+				<groupId>org.jeecgframework.boot</groupId>
+				<artifactId>jee-workFlow</artifactId>
+				<version>${jeecgboot.version}</version>
 			</dependency>
 
 		</dependencies>

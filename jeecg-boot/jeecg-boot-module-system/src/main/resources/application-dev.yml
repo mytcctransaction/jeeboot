@@ -73,6 +73,10 @@ spring:
     async-executor-activate: false
     #启用异步执行器
     job-executor-activate: false
+    # 检测身份信息表是否存在
+    db-identity-used: false
+    #流程定义文件存放目录
+    process-definition-location-prefix: classpath:/processes/
   aop:
     proxy-target-class: true
   #配置freemarker
@@ -156,7 +160,7 @@ spring:
     port: 6379
 #mybatis plus 设置
 mybatis-plus:
-  mapper-locations: classpath*:org/jeecg/modules/**/xml/*Mapper.xml
+  mapper-locations: classpath*:org/jeecg/modules/**/xml/*Mapper.xml,classpath*:/mapper/**/*Mapper.xml
   global-config:
     # 关闭MP3.0自带的banner
     banner: false
@@ -245,10 +249,14 @@ jeecg :
 #cas单点登录
 cas:
   prefixUrl: http://cas.example.org:8443/cas
-#Mybatis输出sql日志
+
+# 开发环境日志为debug
 logging:
   level:
-    org.jeecg.modules.system.mapper : info
+    org.springframework: ERROR
+    org.jeecg : debug
+    org.springframework.jdbc.core.JdbcTemplate: DEBUG
+    org.springframework.jdbc.core.StatementCreatorUtils: TRACE
 #enable swagger
 swagger:
   enable: true

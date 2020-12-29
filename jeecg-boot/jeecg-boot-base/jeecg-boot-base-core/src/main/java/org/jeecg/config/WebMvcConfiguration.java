@@ -40,6 +40,10 @@ public class WebMvcConfiguration implements WebMvcConfigurer {
      */
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
+        //activiti
+        registry.addResourceHandler("modeler.html").addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("/diagram-viewer/**").addResourceLocations("classpath:/static/diagram-viewer/");
+        registry.addResourceHandler("/editor-app/**").addResourceLocations("classpath:/static/editor-app/");
         registry.addResourceHandler("/**")
                 .addResourceLocations("file:" + upLoadPath + "//", "file:" + webAppPath + "//")
                 .addResourceLocations(staticLocations.split(","));

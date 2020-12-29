@@ -36,23 +36,107 @@
 		</dependency>
 		<dependency>
 			<groupId>org.jeecgframework.boot</groupId>
-			<artifactId>jeecg-boot-module-demo</artifactId>
-			<version>${jeecgboot.version}</version>
+			<artifactId>jeecg-boot-base-core</artifactId>
 		</dependency>
 
 
+        <!-- Activiti 启动器 -->
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring-boot-starter-basic</artifactId>
+            <version>${activiti.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-json-converter</artifactId>
+            <version>${activiti.version}</version>
+        </dependency>
+
+		<dependency>
+			<groupId>org.activiti</groupId>
+			<artifactId>activiti-bpmn-layout</artifactId>
+			<version>${activiti.version}</version>
+		</dependency>
+		<!-- xml解析依赖-->
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>batik-codec</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>batik-css</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>batik-svg-dom</artifactId>
+			<version>1.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.xmlgraphics</groupId>
+			<artifactId>batik-svggen</artifactId>
+			<version>1.7</version>
+		</dependency>
+
+		<!-- xml解析依赖-->
+        <!--<dependency>-->
+            <!--<groupId>org.activiti</groupId>-->
+            <!--<artifactId>activiti-spring-boot-starter-rest-api</artifactId>-->
+            <!--<version>${activiti.version}</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.mybatis</groupId>-->
+                    <!--<artifactId>mybatis</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+
+        <!--activiti modeler 5.22 start-->
+        <!--<dependency>-->
+            <!--<groupId>org.activiti</groupId>-->
+            <!--<artifactId>activiti-json-converter</artifactId>-->
+            <!--<version>${activiti.version}</version>-->
+            <!--<exclusions>-->
+                <!--<exclusion>-->
+                    <!--<groupId>org.activiti</groupId>-->
+                    <!--<artifactId>activiti-bpmn-model</artifactId>-->
+                <!--</exclusion>-->
+            <!--</exclusions>-->
+        <!--</dependency>-->
+        <!-- xml解析依赖-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.xmlgraphics</groupId>-->
+            <!--<artifactId>batik-codec</artifactId>-->
+            <!--<version>1.7</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.xmlgraphics</groupId>-->
+            <!--<artifactId>batik-css</artifactId>-->
+            <!--<version>1.7</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.xmlgraphics</groupId>-->
+            <!--<artifactId>batik-svg-dom</artifactId>-->
+            <!--<version>1.7</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>org.apache.xmlgraphics</groupId>-->
+            <!--<artifactId>batik-svggen</artifactId>-->
+            <!--<version>1.7</version>-->
+        <!--</dependency>-->
+
+        <!-- xml解析依赖-->
+        <!--activiti modeler 5.22 end-->
+
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<!--微服务模式下修改为 true,跳过此打包插件，否则微服务模块无法引用-->
-					<skip>false</skip>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
+
 </project>

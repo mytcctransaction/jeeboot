@@ -127,7 +127,17 @@ public class ShiroConfig {
         //websocket排除
         filterChainDefinitionMap.put("/websocket/**", "anon");//系统通知和公告
         filterChainDefinitionMap.put("/vxeSocket/**", "anon");//JVxeTable无痕刷新示例
+        //activiti
+        filterChainDefinitionMap.put("/captcha.jpg", "anon");
+        filterChainDefinitionMap.put("/diagram-viewer/**", "anon");
+        filterChainDefinitionMap.put("/editor-app/**", "anon");
 
+        filterChainDefinitionMap.put("/modeler.html**", "anon");
+        //service/model
+        filterChainDefinitionMap.put("/service/**", "anon");
+        filterChainDefinitionMap.put("/act/reprocdef/**", "anon");
+
+        filterChainDefinitionMap.put("/act/remodel/**", "anon");
         //性能监控  TODO 存在安全漏洞
         //filterChainDefinitionMap.put("/actuator/**", "anon");
 

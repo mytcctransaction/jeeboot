@@ -12,9 +12,6 @@
     <artifactId>jeecg-boot-module-demo</artifactId>
 
     <dependencies>
-        <dependency>
-            <groupId>org.jeecgframework.boot</groupId>
-            <artifactId>jeecg-boot-base-core</artifactId>
-        </dependency>
+
     </dependencies>
 </project>
