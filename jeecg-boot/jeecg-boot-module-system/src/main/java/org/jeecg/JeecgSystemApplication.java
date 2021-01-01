@@ -49,7 +49,7 @@ public class JeecgSystemApplication extends SpringBootServletInitializer {
                 "External: \thttp://" + ip + ":" + port + path + "/\n\t" +
                 "Swagger文档: \thttp://" + ip + ":" + port + path + "/doc.html\n" +
                 "----------------------------------------------------------");
-        System.setProperty("tomcat.util.http.parser.HttpParser.requestTargetAllow",":");
+
 
     }
 

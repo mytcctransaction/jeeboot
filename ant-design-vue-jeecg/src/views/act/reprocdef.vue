@@ -153,6 +153,7 @@
   export default {
     data () {
       return {
+
         searchForm: {
           category: '',
           key: ''
@@ -170,6 +171,7 @@
     activated () {
       this.getDataList()
     },
+
     methods: {
       // 获取数据列表
       getDataList () {
@@ -235,7 +237,7 @@
       },
       // 读取xml、png资源
       read (id, resType) {
-        let url = window._CONFIG['domianURL']+ `/act/reprocdef/read?processInstanceId=${id}&resType=${resType}`
+        let url = window._CONFIG['domianURL']+ `/act/reprocdef/read?processDefinitionId=${id}&resType=${resType}`
         window.open(url)
       },
       // 部署

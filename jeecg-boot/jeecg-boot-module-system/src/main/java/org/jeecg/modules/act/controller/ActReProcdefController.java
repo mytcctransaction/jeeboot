@@ -102,16 +102,23 @@ public class ActReProcdefController  {
 
     /**
      * 读取资源，通过部署ID
-     * @param pProcessInstanceId 流程实例ID
+     * @param processDefinitionId 流程定义ID
      * @param resType  资源类型(xml|image)
      * @param response 响应
      * @throws Exception 读写流异常
      */
     @RequestMapping("/read")
-    public void resourceRead(String processInstanceId, String resType,
+    public void resourceRead(String processDefinitionId, String resType,
                              HttpServletResponse response)
             throws Exception {
-        String processDefinitionId = "";
+        InputStream resourceAsStream = actReProcdefService.resourceRead(processDefinitionId, null, resType);
+        byte[] b = new byte[1024];
+        int len = -1;
+        int lenEnd = 1024;
+        while ((len = resourceAsStream.read(b, 0, lenEnd)) != -1) {
+            response.getOutputStream().write(b, 0, len);
+        }
+        /*String processDefinitionId = "";
         ProcessInstance processInstance = runtimeService.createProcessInstanceQuery().processInstanceId(processInstanceId).singleResult();
         if(processInstance == null) {
             HistoricProcessInstance historicProcessInstance = historyService.createHistoricProcessInstanceQuery().processInstanceId(processInstanceId).singleResult();
@@ -142,7 +149,7 @@ public class ActReProcdefController  {
             while ((len = resourceAsStream.read(b, 0, 1024)) != -1) {
                 response.getOutputStream().write(b, 0, len);
             }
-        }
+        }*/
     }
     /**
      * 获取流程图像，已执行节点和流程线高亮显示

@@ -136,8 +136,12 @@ public class ShiroConfig {
         //service/model
         filterChainDefinitionMap.put("/service/**", "anon");
         filterChainDefinitionMap.put("/act/reprocdef/**", "anon");
-
         filterChainDefinitionMap.put("/act/remodel/**", "anon");
+
+        //genform
+        filterChainDefinitionMap.put("/genform/**", "anon");
+        filterChainDefinitionMap.put("/formjs/**", "anon");
+        filterChainDefinitionMap.put("/form/**", "anon");
         //性能监控  TODO 存在安全漏洞
         //filterChainDefinitionMap.put("/actuator/**", "anon");
 
