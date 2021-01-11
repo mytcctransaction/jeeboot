@@ -19,8 +19,10 @@
 package org.jeecg.modules.act.controller;
 
 import cn.hutool.core.convert.Convert;
+import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
+import lombok.extern.slf4j.Slf4j;
 import org.activiti.bpmn.model.BpmnModel;
 import org.activiti.bpmn.model.FlowNode;
 import org.activiti.bpmn.model.SequenceFlow;
@@ -36,7 +38,9 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.jeecg.modules.act.BusinessException;
 import org.jeecg.modules.act.RestResponse;
+import org.jeecg.modules.act.entity.PageData;
 import org.jeecg.modules.act.service.ActReProcdefService;
+import org.jeecg.modules.act.service.ProcdefService;
 import org.jeecg.modules.flow.base.ICustomProcessDiagramGenerator;
 import org.jeecg.modules.flow.base.WorkflowConstants;
 import org.jeecg.modules.flow.service.IProcessService;
@@ -65,6 +69,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("act/reprocdef")
+@Slf4j
 public class ActReProcdefController  {
     @Autowired
     private ActReProcdefService actReProcdefService;
@@ -86,6 +91,9 @@ public class ActReProcdefController  {
 
     @Autowired
     private TaskService taskService;
+
+    @Autowired
+    private ProcdefService procdefService;
     /**
      * 分页查询
      *
@@ -111,6 +119,8 @@ public class ActReProcdefController  {
     public void resourceRead(String processDefinitionId, String resType,
                              HttpServletResponse response)
             throws Exception {
+        List<PageData> list=procdefService.list(new org.jeecg.modules.act.entity.Page());
+        log.info("list:"+ JSON.toJSONString(list));
         InputStream resourceAsStream = actReProcdefService.resourceRead(processDefinitionId, null, resType);
         byte[] b = new byte[1024];
         int len = -1;

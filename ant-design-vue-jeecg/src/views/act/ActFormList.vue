@@ -23,7 +23,7 @@
           </template>
           <a-col :xl="6" :lg="7" :md="8" :sm="24">
             <span style="float: left;overflow: hidden;" class="table-page-search-submitButtons">
-              <a-button type="primary" @click="searchQuery" icon="search">查询</a-button>
+              <a-button type="primary" @click="searchQuery" id="qa" icon="search">查询</a-button>
               <a-button type="primary" @click="searchReset" icon="reload" style="margin-left: 8px">重置</a-button>
               <a @click="handleToggleSearch" style="margin-left: 8px">
                 {{ toggleSearchStatus ? '收起' : '展开' }}
@@ -96,7 +96,8 @@
 
         <span slot="action" slot-scope="text, record">
           <a @click="handleEdit(record)">编辑</a>
-
+          &nbsp;
+          <a @click="handleDesign(record)">设计</a>
           <a-divider type="vertical" />
           <a-dropdown>
             <a class="ant-dropdown-link">更多 <a-icon type="down" /></a>
@@ -237,6 +238,21 @@
     },
     methods: {
       initDictConfig(){
+      },
+      handleDesign(record){
+        console.info("record:"+record)
+        let url = window._CONFIG['domianURL']+`/genform/index.html?formKey=${record.code}`
+        let winObjEI=window.open(url)
+        var isClose = 1;
+        //关闭open页面时刷新父页面列表
+        var loop = setInterval(function () {
+          if (winObjEI.closed && isClose == 1) {
+            isClose--;
+            //这里写刷新代码
+            console.info("isClose:"+isClose)
+            document.getElementById('qa').click();
+          }
+        }, 1000);
       },
       getSuperFieldList(){
         let fieldList=[];

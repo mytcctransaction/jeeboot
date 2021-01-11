@@ -28,7 +28,7 @@ import java.net.UnknownHostException;
 */
 @Slf4j
 //@ComponentScan(basePackages = {"org.jeecg.*"})
-@MapperScan({"org.jeecg.**.mapper*","org.jeecg.**.mapper.*Mapper"})
+//@MapperScan({"org.jeecg.**.mapper*","org.jeecg.**.mapper.*Mapper","org.jeecg.modules.act.entity.*"})
 @SpringBootApplication(exclude = { SecurityAutoConfiguration.class })
 public class JeecgSystemApplication extends SpringBootServletInitializer {
 
